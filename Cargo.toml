@@ -1,0 +1,15 @@
+[package]
+name = "simple_llama"
+version = "1.0.0"
+edition = "2024"
+description = "A simple AI library."
+readme = "README.md"
+license = "MIT OR Apache-2.0"
+
+[dependencies]
+# anyhow = "*"
+tokio = { version = "1.44.0", features = ["full"]  } 
+serde = { version = "1.0.219", features = ["derive"] }
+serde_json = "1.0.140"
+reqwest = { version = "0.12.12", features = ["json"] }
+tokio-stream = { version = "0.1.17"}
