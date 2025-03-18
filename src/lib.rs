@@ -14,7 +14,7 @@ pub fn add_message(model_memory: &mut ModelMemory, role: String, content: String
 pub async fn send_message(client: &Client, data: &ModelData) -> Result<Message, reqwest::Error> {
     let res = client
         .post("http://localhost:11434/api/chat")
-        .json(data) // Send the entire `ModelData` struct as JSON
+        .json(&data) // Send the entire `ModelData` struct as JSON
         .send()
         .await?;
 
@@ -23,3 +23,10 @@ pub async fn send_message(client: &Client, data: &ModelData) -> Result<Message, 
 
     Ok(Message { status, text })
 }
+
+// Add streaming options here
+// Use tokio streaming
+// also we should make 2 types of ModelData
+// one with streaming and one without.
+
+
