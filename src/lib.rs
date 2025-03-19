@@ -1,32 +1,53 @@
 pub mod types;
 mod utils;
 use reqwest::Client;
-use types::{Json, Message, ModelData, ModelMemory};
+use types::{ChatMessage, Message, ModelMemory, ModelOptions};
 
 /// Adds message to history vector
 pub fn add_message(model_memory: &mut ModelMemory, role: String, content: String) {
-    let msg = Json { role, content };
+    let msg = ChatMessage { role, content };
 
     model_memory.push(msg);
 }
 
 /// Sends message to ollama.
-pub async fn send_message(client: &Client, data: &ModelData) -> Result<Message, reqwest::Error> {
-    let res = client
-        .post("http://localhost:11434/api/chat")
-        .json(&data) // Send the entire `ModelData` struct as JSON
-        .send()
-        .await?;
+pub async fn send_message(
+    client: &Client,
+    data: &ModelOptions,
+    url: &str,
+) -> Result<Message, reqwest::Error> {
+    let result = client.post(url).json(&data).send().await?;
 
-    let status = res.status();
-    let text = res.text().await?;
+    let status = result.status();
+    let text = result.text().await?;
 
-    Ok(Message { status, text })
+    Ok(Message {
+        status_code: status,
+        response: text,
+    })
 }
 
-// Add streaming options here
-// Use tokio streaming
-// also we should make 2 types of ModelData
-// one with streaming and one without.
+#[cfg(test)]
+mod tests {
+    use crate::{
+        add_message,
+        types::{ChatMessage, ModelMemory},
+    };
 
-
+    #[test]
+    fn test_add_message() {
+        let mut messages: ModelMemory = Vec::new();
+        add_message(
+            &mut messages,
+            "system".to_string(),
+            "Testing...".to_string(),
+        );
+        assert!(
+            messages
+                == [ChatMessage {
+                    role: "system".to_string(),
+                    content: "Testing...".to_string(),
+                }]
+        )
+    }
+}

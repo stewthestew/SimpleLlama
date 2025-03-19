@@ -8,11 +8,11 @@ Simple Llama is an Ollama wrapper for rust, that makes using Ollama simple yet c
 ## Nix support
 I have gone through so much pain with nix
 
-here is the nix-shell I use.
+Here is the nix-shell I use.
 
 Keep in mind that every nix system is different
 
-so this might not work with you.
+So this might not work with you.
 
 ```nix
 { pkgs ? import <nixpkgs> {} }:
