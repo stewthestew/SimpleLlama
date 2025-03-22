@@ -1,6 +1,6 @@
 #[cfg(test)]
 mod tests {
-    use crate::chat::{ChatMessage, ModelMemoryMethods, add_message, ModelMemory};
+    use crate::chat::{ChatMessage, ModelMemory, ModelMemoryMethods, add_message};
     use crate::models::ModelData;
 
     #[test]
@@ -58,7 +58,6 @@ mod tests {
         };
         assert_eq!(model_data.get_model(), "mistral");
     }
-
 
     #[test]
     fn test_add_message() {

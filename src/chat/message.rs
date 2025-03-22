@@ -16,7 +16,7 @@ pub struct Message {
 // Traits
 pub trait MessageMethods {
     /// Extracts the content from the LLM response JSON.
-    /// 
+    ///
     /// # Returns
     /// The content field from the response, or an empty string if parsing fails.
     fn get_llm_content(&self) -> String;
@@ -44,4 +44,4 @@ impl MessageMethods for Message {
         }
         String::new()
     }
-} 
+}
