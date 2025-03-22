@@ -1,8 +1,11 @@
-use std::{io::{stdin, stdout, Write}, process::exit};
+use std::{
+    io::{Write, stdin, stdout},
+    process::exit,
+};
 
 use reqwest::Client;
 use simple_llama::{
-    add_message, chat::MessageMethods, send_message, ModelMemory, ModelOptions, DEFAULT_URL
+    DEFAULT_URL, ModelMemory, ModelOptions, add_message, chat::MessageMethods, send_message,
 };
 
 #[tokio::main]
@@ -23,31 +26,23 @@ async fn main() {
             exit(1);
         };
 
-        add_message(
-            &mut history,
-            "user".to_string(),
-            input.clone(),
-        );
+        add_message(&mut history, "user".to_string(), input.clone());
         input.clear();
 
-        add_message(&mut history, "user".to_string(), "hello".to_string());
         let model_data = ModelOptions {
             messages: history.clone(), // You should find a way not to clone it
             top_p: 1f32,
             top_k: 1,
-            temperature: 1.0,
+            temperature: 0.7,
             model: "llama3.1".to_string(),
             stream: false,
         };
-    
 
         match send_message(&client, &model_data, DEFAULT_URL).await {
             Err(e) => eprintln!("{e}"),
             Ok(val) => {
-                println!(
-                    "{}: {}",
-                    model_data.model,val.get_llm_content()
-                );
+                println!("{}: {}", model_data.model, val.get_llm_content());
+                add_message(&mut history, "assistant".to_string(), val.get_llm_content());
             }
         }
     }

@@ -1,5 +1,5 @@
-use serde::{Deserialize, Serialize};
 use crate::chat::ModelMemory;
+use serde::{Deserialize, Serialize};
 
 #[derive(Deserialize, Serialize)]
 pub struct ModelOptions {
@@ -25,4 +25,4 @@ impl ModelData {
     pub fn get_model(&self) -> &str {
         &self.model
     }
-} 
+}

@@ -1,6 +1,6 @@
-use reqwest::Client;
 use super::options::ModelOptions;
 use crate::chat::Message;
+use reqwest::Client;
 
 /// Sends message to ollama.
 pub async fn send_message(
@@ -16,4 +16,4 @@ pub async fn send_message(
         status_code: status,
         response: text,
     })
-} 
+}
