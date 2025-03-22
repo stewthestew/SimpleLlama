@@ -1,4 +1,4 @@
-// Models module for simple_llama
+// Models module for simple_llama_rs
 // Contains model options and configuration
 
 mod client;

@@ -17,7 +17,7 @@ pub use message::{ChatMessage, Message, MessageMethods};
 ///
 /// # Examples
 /// ```rust
-/// use simple_llama::{
+/// use simple_llama_rs::{
 ///     ModelMemory, ModelOptions, add_message, chat::MessageMethods,
 /// };
 /// // Make the vector which will hold the messages.
