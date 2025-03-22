@@ -2,9 +2,14 @@
 name = "simple_llama"
 version = "1.0.0"
 edition = "2024"
-description = "A simple AI library."
+
+description = "Rust crate for the Ollama API."
 readme = "README.md"
-license = "MIT OR Apache-2.0"
+license = "MIT"
+repository = "https://github.com/stewthestew/SimpleLlama"
+homepage = ""
+keywords = ["llm", "ai", "rust"]
+catagories = ["API-bindings"]
 
 [dependencies]
 tokio = { version = "1.44.0", features = ["full"]  } 

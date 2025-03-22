@@ -3,20 +3,20 @@ use crate::chat::Message;
 use reqwest::Client;
 
 /// Sends a message to the LLM
-/// 
+///
 /// # Arguments
 /// * `data` - The data which will be sent to the API
 /// * `url` - The URL for the API.
-/// 
+///
 /// # Returns
 /// A `Result` containing a `Message` on success, or a `reqwest::Error` on failure.
-/// 
+///
 /// # Examples
 /// ```rust
 /// use simple_llama::{
 ///     ModelMemory, ModelOptions, DEFAULT_URL, chat::MessageMethods, send_message
 /// };
-/// 
+///
 /// #[tokio::main]
 /// async fn main() -> Result<(), Box<dyn std::error::Error>> {
 ///     let mut messages: ModelMemory = Vec::new();
@@ -41,10 +41,7 @@ use reqwest::Client;
 ///     Ok(())
 /// }
 /// ```
-pub async fn send_message(
-    data: &ModelOptions,
-    url: &str,
-) -> Result<Message, reqwest::Error> {
+pub async fn send_message(data: &ModelOptions, url: &str) -> Result<Message, reqwest::Error> {
     let client = Client::new();
     let result = client.post(url).json(&data).send().await?;
     let status = result.status();

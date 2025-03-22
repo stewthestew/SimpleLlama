@@ -9,12 +9,12 @@ pub use memory::{ModelMemory, ModelMemoryMethods};
 pub use message::{ChatMessage, Message, MessageMethods};
 
 /// Adds a message to the `model_memory` vector.
-/// 
+///
 /// # Arguments
 /// * `model_memory` - The vector to which the message will be added.
 /// * `role` - The role associated with the content.
 /// * `content` - The text that gets added to the vector.
-/// 
+///
 /// # Examples
 /// ```rust
 /// use simple_llama::{
@@ -22,7 +22,7 @@ pub use message::{ChatMessage, Message, MessageMethods};
 /// };
 /// // Make the vector which will hold the messages.
 /// let mut messages: ModelMemory = Vec::new();
-/// 
+///
 /// // Adds a message to the vector
 /// add_message(
 ///     &mut messages,
