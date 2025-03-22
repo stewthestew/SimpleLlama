@@ -989,7 +989,7 @@ dependencies = [
 ]
 
 [[package]]
-name = "simple_llama"
+name = "simple_llama_rs"
 version = "1.0.0"
 dependencies = [
  "reqwest",
