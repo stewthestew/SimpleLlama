@@ -13,7 +13,7 @@ use reqwest::Client;
 ///
 /// # Examples
 /// ```rust
-/// use simple_llama::{
+/// use simple_llama_rs::{
 ///     ModelMemory, ModelOptions, DEFAULT_URL, chat::MessageMethods, send_message
 /// };
 ///
