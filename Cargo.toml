@@ -1,6 +1,6 @@
 [package]
 name = "simple_llama"
-version = "1.1.0"
+version = "1.0.0"
 edition = "2024"
 description = "A simple AI library."
 readme = "README.md"
