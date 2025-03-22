@@ -1,6 +1,6 @@
 #[cfg(test)]
 mod tests {
-    use crate::{chat::{add_message, ChatMessage, ModelMemory, ModelMemoryMethods}, ModelOptions};
+    use crate::{chat::{add_message, ModelMemoryMethods}, ChatMessage, ModelMemory};
 
     #[test]
     fn test_model_memory_content() {
