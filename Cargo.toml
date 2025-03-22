@@ -1,5 +1,5 @@
 [package]
-name = "simple_llama"
+name = "simple-llama"
 version = "1.0.0"
 edition = "2024"
 
