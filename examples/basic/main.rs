@@ -3,7 +3,6 @@ use std::{
     process::exit,
 };
 
-use reqwest::Client;
 use simple_llama::{
     DEFAULT_URL, ModelMemory, ModelOptions, add_message, chat::MessageMethods, send_message,
 };
@@ -12,10 +11,9 @@ use simple_llama::{
 async fn main() {
     // Variables
     let mut history: ModelMemory = Vec::new();
-    let client = Client::new();
-    let mut input = String::new();
 
     loop {
+        let mut input = String::new();
         print!(": ");
         if let Err(e) = stdout().flush() {
             eprintln!("Failed to flush stdout. {e}");
@@ -26,8 +24,7 @@ async fn main() {
             exit(1);
         };
 
-        add_message(&mut history, "user".to_string(), input.clone());
-        input.clear();
+        add_message(&mut history, "user".to_string(), input);
 
         let model_data = ModelOptions {
             messages: history.clone(), // You should find a way not to clone it
@@ -38,7 +35,7 @@ async fn main() {
             stream: false,
         };
 
-        match send_message(&client, &model_data, DEFAULT_URL).await {
+        match send_message(&model_data, DEFAULT_URL).await {
             Err(e) => eprintln!("{e}"),
             Ok(val) => {
                 println!("{}: {}", model_data.model, val.get_llm_content());
