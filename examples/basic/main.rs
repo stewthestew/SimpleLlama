@@ -2,8 +2,7 @@ use std::{io::{stdin, stdout, Write}, process::exit};
 
 use reqwest::Client;
 use simple_llama::{
-    add_message, send_message,
-    types::{MessageMethods, ModelMemory, ModelOptions, DEFAULT_URL},
+    add_message, chat::MessageMethods, send_message, ModelMemory, ModelOptions, DEFAULT_URL
 };
 
 #[tokio::main]
