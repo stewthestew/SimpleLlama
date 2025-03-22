@@ -1,7 +1,6 @@
 #[cfg(test)]
 mod tests {
-    use crate::chat::{ChatMessage, ModelMemory, ModelMemoryMethods, add_message};
-    use crate::models::ModelData;
+    use crate::{chat::{add_message, ChatMessage, ModelMemory, ModelMemoryMethods}, ModelOptions};
 
     #[test]
     fn test_model_memory_content() {
@@ -34,29 +33,6 @@ mod tests {
             messages.join("\n"),
             "{\"role\": \"system\", \"content\": \"Your name is john\"}\n{\"role\": \"user\", \"content\": \"Hello\"}"
         )
-    }
-
-    #[test]
-    fn test_model_data_get_model() {
-        let model_data = ModelData {
-            messages: vec![],
-            temperature: 1.0,
-            top_p: 1.0,
-            top_k: 1,
-            model: "llama3.1".to_string(),
-            stream: false,
-        };
-        assert_eq!(model_data.get_model(), "llama3.1");
-
-        let model_data = ModelData {
-            messages: vec![],
-            temperature: 1.0,
-            top_p: 1.0,
-            top_k: 1,
-            model: "mistral".to_string(),
-            stream: false,
-        };
-        assert_eq!(model_data.get_model(), "mistral");
     }
 
     #[test]

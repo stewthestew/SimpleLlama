@@ -6,4 +6,4 @@ mod options;
 
 // Re-export types and functions
 pub use client::send_message;
-pub use options::{ModelData, ModelOptions};
+pub use options::ModelOptions;

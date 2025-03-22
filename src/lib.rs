@@ -9,7 +9,7 @@ pub mod models;
 // Convenience re-exports
 pub use chat::{ChatMessage, Message, ModelMemory, add_message};
 pub use common::DEFAULT_URL;
-pub use models::{ModelData, ModelOptions, send_message};
+pub use models::{ModelOptions, send_message};
 
 // Legacy tests
 #[cfg(test)]
