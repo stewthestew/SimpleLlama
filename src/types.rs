@@ -50,13 +50,118 @@ pub struct ModelData {
     pub stream: bool,
 }
 
+impl ModelData {
+    /// Returns the model name from the ModelData struct.
+    /// 
+    /// # Examples
+    /// ```rust
+    /// use simple_llama::types::ModelData;
+    /// 
+    /// let model_data = ModelData {
+    ///     messages: vec![],
+    ///     temperature: 1.0,
+    ///     top_p: 1.0,
+    ///     top_k: 1,
+    ///     model: "llama2".to_string(),
+    ///     stream: false,
+    /// };
+    /// assert_eq!(model_data.get_model(), "llama2");
+    /// ```
+    pub fn get_model(&self) -> &str {
+        &self.model
+    }
+}
+
 // Traits
 pub trait ModelMemoryMethods {
+    /// Joins all messages in the memory into a single string with the specified separator.
+    /// Each message is formatted as a JSON object with role and content.
+    /// 
+    /// # Arguments
+    /// * `separator` - The string to use between messages
+    /// 
+    /// # Examples
+    /// ```rust
+    /// use simple_llama::types::{ChatMessage, ModelMemoryMethods};
+    /// 
+    /// let messages = vec![
+    ///     ChatMessage {
+    ///         role: "system".to_string(),
+    ///         content: "You are a helpful assistant.".to_string(),
+    ///     },
+    ///     ChatMessage {
+    ///         role: "user".to_string(),
+    ///         content: "Hello".to_string(),
+    ///     },
+    /// ];
+    /// let result = messages.join("\n");
+    /// assert!(result.contains(r#"{"role": "system", "content": "You are a helpful assistant."}"#));
+    /// ```
     fn join(&self, separator: &str) -> String;
+
+    /// Returns only the content of all messages joined with the specified separator.
+    /// 
+    /// # Arguments
+    /// * `separator` - The string to use between message contents
+    /// 
+    /// # Examples
+    /// ```rust
+    /// use simple_llama::types::{ChatMessage, ModelMemoryMethods};
+    /// 
+    /// let messages = vec![
+    ///     ChatMessage {
+    ///         role: "system".to_string(),
+    ///         content: "You are a helpful assistant.".to_string(),
+    ///     },
+    ///     ChatMessage {
+    ///         role: "user".to_string(),
+    ///         content: "Hello".to_string(),
+    ///     },
+    /// ];
+    /// assert_eq!(messages.content("\n"), "You are a helpful assistant.\nHello");
+    /// ```
     fn content(&self, separator: &str) -> String;
+
+    /// Returns only the roles of all messages joined with the specified separator.
+    /// 
+    /// # Arguments
+    /// * `separator` - The string to use between roles
+    /// 
+    /// # Examples
+    /// ```rust
+    /// use simple_llama::types::{ChatMessage, ModelMemoryMethods};
+    /// 
+    /// let messages = vec![
+    ///     ChatMessage {
+    ///         role: "system".to_string(),
+    ///         content: "You are a helpful assistant.".to_string(),
+    ///     },
+    ///     ChatMessage {
+    ///         role: "user".to_string(),
+    ///         content: "Hello".to_string(),
+    ///     },
+    /// ];
+    /// assert_eq!(messages.role("\n"), "system\nuser");
+    /// ```
+    fn role(&self, separator: &str) -> String;
 }
 
 pub trait MessageMethods {
+    /// Extracts the content from the LLM response JSON.
+    /// 
+    /// # Returns
+    /// The content field from the response, or an empty string if parsing fails.
+    /// 
+    /// # Examples
+    /// ```rust
+    /// use simple_llama::types::{Message, MessageMethods};
+    /// 
+    /// let message = Message {
+    ///     status_code: reqwest::StatusCode::OK,
+    ///     response: r#"{"message": {"content": "Hello, how can I help?"}}"#.to_string(),
+    /// };
+    /// assert_eq!(message.get_llm_content(), "Hello, how can I help?");
+    /// ```
     fn get_llm_content(&self) -> String;
 }
 
@@ -78,8 +183,29 @@ impl fmt::Display for ChatMessage {
 }
 
 impl ModelMemoryMethods for ModelMemory {
-    // TODO:
-    // Write documentation for the join method
+    /// Joins all messages in the memory into a single string with the specified separator.
+    /// Each message is formatted as a JSON object with role and content.
+    /// 
+    /// # Arguments
+    /// * `separator` - The string to use between messages
+    /// 
+    /// # Examples
+    /// ```rust
+    /// use simple_llama::types::{ChatMessage, ModelMemoryMethods};
+    /// 
+    /// let messages = vec![
+    ///     ChatMessage {
+    ///         role: "system".to_string(),
+    ///         content: "You are a helpful assistant.".to_string(),
+    ///     },
+    ///     ChatMessage {
+    ///         role: "user".to_string(),
+    ///         content: "Hello".to_string(),
+    ///     },
+    /// ];
+    /// let result = messages.join("\n");
+    /// assert!(result.contains(r#"{"role": "system", "content": "You are a helpful assistant."}"#));
+    /// ```
     fn join(&self, separator: &str) -> String {
         self.iter()
             .map(|msg| {
@@ -92,7 +218,11 @@ impl ModelMemoryMethods for ModelMemory {
             .join(separator) // Join the strings using the separator
     }
 
-    /// Similar to join but only returns the content of the messages.
+    /// Returns only the content of all messages joined with the specified separator.
+    /// 
+    /// # Arguments
+    /// * `separator` - The string to use between message contents
+    /// 
     /// # Examples
     /// ``` rust
     /// use simple_llama::types::ChatMessage;
@@ -114,23 +244,54 @@ impl ModelMemoryMethods for ModelMemory {
             .collect::<Vec<String>>()
             .join(separator)
     }
-    // TODO:
-    // add a role method
+    /// Similar to content but only returns the role of the messages.
+    /// # Examples
+    /// ``` rust
+    /// use simple_llama::types::ChatMessage;
+    /// use crate::simple_llama::types::ModelMemoryMethods;
+    /// let messages = vec![
+    ///     ChatMessage {
+    ///         role: "system".to_string(),
+    ///         content: "Your name is josipher.".to_string(),
+    ///     },
+    ///     ChatMessage {
+    ///         role: "user".to_string(),
+    ///         content: "hello".to_string(),
+    ///     },
+    /// ];
+    /// assert_eq!(messages.role("\n"), "system\nuser");
+    fn role(&self, separator: &str) -> String {
+        self.iter()
+            .map(|msg| format!("{}", msg.role))
+            .collect::<Vec<String>>()
+            .join(separator)
+    }
 }
 
 impl MessageMethods for Message {
+    /// Extracts the content from the LLM response JSON.
+    /// Returns the content field from the response, or an empty string if parsing fails.
     fn get_llm_content(&self) -> String {
-        todo!()
+        match serde_json::from_str::<serde_json::Value>(&self.response) {
+            Ok(json) => {
+                if let Some(content) = json.get("message").and_then(|msg| msg.get("content")) {
+                    content.as_str().unwrap_or_default().to_string()
+                } else {
+                    String::new()
+                }
+            }
+            Err(_) => String::new(),
+        }
     }
 }
 
 #[cfg(test)]
 mod tests {
     use crate::ChatMessage;
-    use crate::types::ModelMemoryMethods;
+    use crate::types::{ModelMemoryMethods, ModelData};
 
     #[test]
-    pub fn test_model_memory_content() {
+    fn test_model_memory_content() {
         let messages = vec![
             ChatMessage {
                 role: "system".to_string(),
@@ -145,7 +306,7 @@ mod tests {
     }
 
     #[test]
-    pub fn test_model_memory_join() {
+    fn test_model_memory_join() {
         let messages = vec![
             ChatMessage {
                 role: "system".to_string(),
@@ -160,5 +321,28 @@ mod tests {
             messages.join("\n"),
             "{\"role\": \"system\", \"content\": \"Your name is john\"}\n{\"role\": \"user\", \"content\": \"Hello\"}"
         )
+    }
+
+    #[test]
+    fn test_model_data_get_model() {
+        let model_data = ModelData {
+            messages: vec![],
+            temperature: 1.0,
+            top_p: 1.0,
+            top_k: 1,
+            model: "llama2".to_string(),
+            stream: false,
+        };
+        assert_eq!(model_data.get_model(), "llama2");
+
+        let model_data = ModelData {
+            messages: vec![],
+            temperature: 1.0,
+            top_p: 1.0,
+            top_k: 1,
+            model: "mistral".to_string(),
+            stream: false,
+        };
+        assert_eq!(model_data.get_model(), "mistral");
     }
 }
