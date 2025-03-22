@@ -1,3 +1,5 @@
 /target
 /vendor
 run.bash
+shell.nix
+.vscode/
