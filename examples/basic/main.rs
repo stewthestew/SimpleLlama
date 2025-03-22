@@ -15,13 +15,13 @@ async fn main() {
 
     loop {
         print!(": ");
-        if stdout().flush().is_err() {
-            eprintln!("Failed to flush stdout.");
+        if let Err(e) = stdout().flush() {
+            eprintln!("Failed to flush stdout. {e}");
         };
 
-        if stdin().read_line(&mut input).is_err() {
-            eprintln!("Failed to read user input.");
-            exit(0);
+        if let Err(e) = stdin().read_line(&mut input) {
+            eprintln!("Failed to read user input. {e}");
+            exit(1);
         };
 
         add_message(
@@ -33,7 +33,7 @@ async fn main() {
 
         add_message(&mut history, "user".to_string(), "hello".to_string());
         let model_data = ModelOptions {
-            messages: history.clone(),
+            messages: history.clone(), // You should find a way not to clone it
             top_p: 1f32,
             top_k: 1,
             temperature: 1.0,
@@ -46,8 +46,8 @@ async fn main() {
             Err(e) => eprintln!("{e}"),
             Ok(val) => {
                 println!(
-                    "Response: {}",
-                    val.get_llm_content()
+                    "{}: {}",
+                    model_data.model,val.get_llm_content()
                 );
             }
         }

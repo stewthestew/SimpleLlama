@@ -53,7 +53,7 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
         temperature: 0.7,
         top_p: 0.9,
         top_k: 40,
-        model: "llama2".to_string(),
+        model: "llama3.1".to_string(),
         stream: false,
     };
     
@@ -66,3 +66,8 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
     Ok(())
 }
 ```
+
+# Todo
+- [ ] Streaming support
+- [ ] Model searching
+- [ ] Add more todo's

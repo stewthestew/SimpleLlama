@@ -330,7 +330,7 @@ mod tests {
             temperature: 1.0,
             top_p: 1.0,
             top_k: 1,
-            model: "llama2".to_string(),
+            model: "llama3.1".to_string(),
             stream: false,
         };
         assert_eq!(model_data.get_model(), "llama2");
