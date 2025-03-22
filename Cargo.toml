@@ -6,8 +6,8 @@ edition = "2024"
 description = "Rust crate for the Ollama API."
 readme = "README.md"
 license = "MIT"
-repository = "https://github.com/stewthestew/SimpleLlama"
-homepage = ""
+repository = ""
+homepage = "https://github.com/stewthestew/SimpleLlama"
 keywords = ["llm", "ai", "rust"]
 catagories = ["API-bindings"]
 
