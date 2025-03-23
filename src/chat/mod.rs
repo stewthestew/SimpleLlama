@@ -6,7 +6,7 @@ mod message;
 
 // Re-export types and functions
 pub use memory::{ModelMemory, ModelMemoryMethods};
-pub use message::{ChatMessage, Message, MessageMethods};
+pub use message::{ChatMessage, Response, MessageMethods};
 
 /// Adds a message to the `model_memory` vector.
 ///

@@ -1,5 +1,5 @@
-use super::options::ModelOptions;
-use crate::chat::Message;
+use super::{CopyInfo, DeleteInfo, PullInfo, options::ModelOptions};
+use crate::chat::Response;
 use reqwest::Client;
 
 /// Sends a message to the LLM
@@ -9,7 +9,7 @@ use reqwest::Client;
 /// * `url` - The URL for the API.
 ///
 /// # Returns
-/// A `Result` containing a `Message` on success, or a `reqwest::Error` on failure.
+/// A `Result` containing a `Response` on success, or a `reqwest::Error` on failure.
 ///
 /// # Examples
 /// ```rust
@@ -41,13 +41,125 @@ use reqwest::Client;
 ///     Ok(())
 /// }
 /// ```
-pub async fn send_message(data: &ModelOptions, url: &str) -> Result<Message, reqwest::Error> {
+pub async fn send_message(data: &ModelOptions, url: &str) -> Result<Response, reqwest::Error> {
     let client = Client::new();
     let result = client.post(url).json(&data).send().await?;
     let status = result.status();
     let text = result.text().await?;
 
-    Ok(Message {
+    Ok(Response {
+        status_code: status,
+        response: text,
+    })
+}
+/// Copies a model under a new name.
+///
+/// # Arguments
+/// * `copy_info` - The information required to copy the model, including source and destination names.
+/// * `url` - The URL for the API endpoint that handles model copying. Make sure to use the correct one. Otherwise it won't work
+///
+/// # Returns
+/// A `Result` containing a `Response` on success, or a `reqwest::Error` on failure.
+///
+/// # Examples
+/// ```rust
+/// use simple_llama_rs::{CopyInfo, copy_model, DEFAULT_COPY_URL};
+///
+/// #[tokio::main]
+/// async fn main() -> Result<(), Box<dyn std::error::Error>> {
+///     let copy_info = CopyInfo {
+///         source: "llama3.1".to_string(),
+///         destination: "llama_llm".to_string(),
+///     };
+///
+///     let response = copy_model(&copy_info, DEFAULT_COPY_URL).await?;
+///     println!("Copy status: {}", response.status_code);
+///
+///     Ok(())
+/// }
+/// ```
+pub async fn copy_model(copy_info: &CopyInfo, url: &str) -> Result<Response, reqwest::Error> {
+    let client = Client::new();
+    let result = client.post(url).json(&copy_info).send().await?;
+    let status = result.status();
+    let text = result.text().await?;
+    Ok(Response {
+        status_code: status,
+        response: text,
+    })
+}
+
+/// Deletes a model.
+///
+/// # Arguments
+/// * `delete_info` - The information required to delete the model, including the model name.
+/// * `url` - The URL for the API endpoint that handles model deletion. Make sure to use the correct one.
+///
+/// # Returns
+/// A `Result` containing a `Response` on success, or a `reqwest::Error` on failure.
+///
+/// # Examples
+/// ```rust
+/// use simple_llama_rs::{DeleteInfo, delete_model, DEFAULT_URL};
+///
+/// #[tokio::main]
+/// async fn main() -> Result<(), Box<dyn std::error::Error>> {
+///     let delete_info = DeleteInfo {
+///         model: "llama_model".to_string(),
+///     };
+///
+///     let response = delete_model(&delete_info, DEFAULT_URL).await?;
+///     println!("Delete status: {}", response.status_code);
+///
+///     Ok(())
+/// }
+/// ```
+pub async fn delete_model(delete_info: &DeleteInfo, url: &str) -> Result<Response, reqwest::Error> {
+    let client = Client::new();
+    let result = client.delete(url).json(&delete_info).send().await?;
+    let status = result.status();
+    let text = result.text().await?;
+    Ok(Response {
+        status_code: status,
+        response: text,
+    })
+}
+
+// You can unignore this if you want to wait an hour for a model to pull
+
+/// Pulls a model from https://ollama.com.
+///
+/// # Arguments
+/// * `pull_info` - The information required to pull the model, including the model name.
+/// * `url` - The URL for the API endpoint that handles model pulling. Make sure to use the correct one.
+///
+/// # Returns
+/// A `Result` containing a `Response` on success, or a `reqwest::Error` on failure.
+///
+/// # Examples
+/// ```ignore
+/// use simple_llama_rs::{PullInfo, pull_model, DEFAULT_PULL_URL};
+///
+/// #[tokio::main]
+/// async fn main() -> Result<(), Box<dyn std::error::Error>> {
+///     let pull_info = PullInfo {
+///         model: "llama3.1".to_string(),
+///         insecure: false,
+///         stream: false,
+///     };
+///
+///     let response = pull_model(&pull_info, DEFAULT_PULL_URL).await?;
+///     println!("Pull status: {}", response.status_code);
+///
+///     Ok(())
+/// }
+/// ```
+pub async fn pull_model(pull_info: &PullInfo, url: &str) -> Result<Response, reqwest::Error> {
+    let client = Client::new();
+    let result = client.post(url).json(&pull_info).send().await?;
+    let status = result.status();
+    let text = result.text().await?;
+    Ok(Response {
         status_code: status,
         response: text,
     })

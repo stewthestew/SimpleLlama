@@ -13,7 +13,7 @@ If there are any more dependencies this crate requires, then make an issue.
 Add this to your Cargo.toml file
 ```toml
 [dependencies]
-simple_llama_rs = "1.0.2"
+simple_llama_rs = "1.0.3"
 ```
 or
 ```toml
@@ -76,7 +76,10 @@ async fn main() {
 
 ## Todo
 - [ ] Streaming support
-- [ ] Model searching
+- [ ] Listing models
+- [x] Pulling models
+- [x] Deleting models
+- [x] Copying models
 
 ## Similar tools:
 [Mistral.rs](https://github.com/EricLBuehler/mistral.rs)  
