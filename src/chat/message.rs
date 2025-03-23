@@ -8,7 +8,7 @@ pub struct ChatMessage {
     pub content: String,
 }
 
-pub struct Message {
+pub struct Response {
     pub status_code: StatusCode,
     pub response: String,
 }
@@ -33,7 +33,7 @@ impl fmt::Display for ChatMessage {
     }
 }
 
-impl MessageMethods for Message {
+impl MessageMethods for Response {
     fn get_llm_content(&self) -> String {
         if let Ok(json) = serde_json::from_str::<serde_json::Value>(&self.response) {
             if let Some(content) = json.get("message").and_then(|m| m.get("content")) {

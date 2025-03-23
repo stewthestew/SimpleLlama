@@ -27,7 +27,7 @@ async fn main() {
         add_message(&mut history, "user".to_string(), input);
 
         let model_data = ModelOptions {
-            messages: history.clone(), // You should find a way not to clone it
+            messages: history.clone(),
             top_p: 1f32,
             top_k: 1,
             temperature: 0.7,
