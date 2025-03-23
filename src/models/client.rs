@@ -1,4 +1,4 @@
-use super::{options::ModelOptions, CopyInfo, DeleteInfo};
+use super::{CopyInfo, DeleteInfo, PullInfo, options::ModelOptions};
 use crate::chat::Response;
 use reqwest::Client;
 
@@ -82,8 +82,11 @@ pub async fn copy_model(copy_info: &CopyInfo, url: &str) -> Result<Response, req
     let client = Client::new();
     let result = client.post(url).json(&copy_info).send().await?;
     let status = result.status();
-    let text =  result.text().await?;
-    Ok(Response { status_code: status, response: text })
+    let text = result.text().await?;
+    Ok(Response {
+        status_code: status,
+        response: text,
+    })
 }
 
 /// Deletes a model.
@@ -113,8 +116,51 @@ pub async fn copy_model(copy_info: &CopyInfo, url: &str) -> Result<Response, req
 /// ```
 pub async fn delete_model(delete_info: &DeleteInfo, url: &str) -> Result<Response, reqwest::Error> {
     let client = Client::new();
-    let result = client.post(url).json(&delete_info).send().await?;
+    let result = client.delete(url).json(&delete_info).send().await?;
     let status = result.status();
-    let text =  result.text().await?;
-    Ok(Response { status_code: status, response: text })
+    let text = result.text().await?;
+    Ok(Response {
+        status_code: status,
+        response: text,
+    })
+}
+
+// You can unignore this if you want to wait an hour for a model to pull
+
+/// Pulls a model from https://ollama.com.
+///
+/// # Arguments
+/// * `pull_info` - The information required to pull the model, including the model name.
+/// * `url` - The URL for the API endpoint that handles model pulling. Make sure to use the correct one.
+///
+/// # Returns
+/// A `Result` containing a `Response` on success, or a `reqwest::Error` on failure.
+///
+/// # Examples
+/// ```ignore
+/// use simple_llama_rs::{PullInfo, pull_model, DEFAULT_PULL_URL};
+///
+/// #[tokio::main]
+/// async fn main() -> Result<(), Box<dyn std::error::Error>> {
+///     let pull_info = PullInfo {
+///         model: "llama3.1".to_string(),
+///         insecure: false,
+///         stream: false,
+///     };
+///
+///     let response = pull_model(&pull_info, DEFAULT_PULL_URL).await?;
+///     println!("Pull status: {}", response.status_code);
+///
+///     Ok(())
+/// }
+/// ```
+pub async fn pull_model(pull_info: &PullInfo, url: &str) -> Result<Response, reqwest::Error> {
+    let client = Client::new();
+    let result = client.post(url).json(&pull_info).send().await?;
+    let status = result.status();
+    let text = result.text().await?;
+    Ok(Response {
+        status_code: status,
+        response: text,
+    })
 }

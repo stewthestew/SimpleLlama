@@ -76,8 +76,8 @@ async fn main() {
 
 ## Todo
 - [ ] Streaming support
-- [ ] Model searching
-- [ ] Pulling models
+- [ ] Listing models
+- [x] Pulling models
 - [x] Deleting models
 - [x] Copying models
 
