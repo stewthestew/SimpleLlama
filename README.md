@@ -13,7 +13,7 @@ If there are any more dependencies this crate requires, then make an issue.
 Add this to your Cargo.toml file
 ```toml
 [dependencies]
-simple_llama_rs = "1.0.0"
+simple_llama_rs = "1.0.2"
 ```
 or
 ```toml
