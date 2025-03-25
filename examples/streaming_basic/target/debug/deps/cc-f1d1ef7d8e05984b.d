@@ -1,0 +1,20 @@
+/home/noname/dev/projects/SimpleLlama/examples/streaming_basic/target/debug/deps/libcc-f1d1ef7d8e05984b.rmeta: /home/noname/dev/projects/SimpleLlama/vendor/cc/src/lib.rs /home/noname/dev/projects/SimpleLlama/vendor/cc/src/target.rs /home/noname/dev/projects/SimpleLlama/vendor/cc/src/target/apple.rs /home/noname/dev/projects/SimpleLlama/vendor/cc/src/target/generated.rs /home/noname/dev/projects/SimpleLlama/vendor/cc/src/target/llvm.rs /home/noname/dev/projects/SimpleLlama/vendor/cc/src/target/parser.rs /home/noname/dev/projects/SimpleLlama/vendor/cc/src/windows/mod.rs /home/noname/dev/projects/SimpleLlama/vendor/cc/src/windows/find_tools.rs /home/noname/dev/projects/SimpleLlama/vendor/cc/src/command_helpers.rs /home/noname/dev/projects/SimpleLlama/vendor/cc/src/tool.rs /home/noname/dev/projects/SimpleLlama/vendor/cc/src/tempfile.rs /home/noname/dev/projects/SimpleLlama/vendor/cc/src/utilities.rs /home/noname/dev/projects/SimpleLlama/vendor/cc/src/flags.rs /home/noname/dev/projects/SimpleLlama/vendor/cc/src/detect_compiler_family.c
+
+/home/noname/dev/projects/SimpleLlama/examples/streaming_basic/target/debug/deps/libcc-f1d1ef7d8e05984b.rlib: /home/noname/dev/projects/SimpleLlama/vendor/cc/src/lib.rs /home/noname/dev/projects/SimpleLlama/vendor/cc/src/target.rs /home/noname/dev/projects/SimpleLlama/vendor/cc/src/target/apple.rs /home/noname/dev/projects/SimpleLlama/vendor/cc/src/target/generated.rs /home/noname/dev/projects/SimpleLlama/vendor/cc/src/target/llvm.rs /home/noname/dev/projects/SimpleLlama/vendor/cc/src/target/parser.rs /home/noname/dev/projects/SimpleLlama/vendor/cc/src/windows/mod.rs /home/noname/dev/projects/SimpleLlama/vendor/cc/src/windows/find_tools.rs /home/noname/dev/projects/SimpleLlama/vendor/cc/src/command_helpers.rs /home/noname/dev/projects/SimpleLlama/vendor/cc/src/tool.rs /home/noname/dev/projects/SimpleLlama/vendor/cc/src/tempfile.rs /home/noname/dev/projects/SimpleLlama/vendor/cc/src/utilities.rs /home/noname/dev/projects/SimpleLlama/vendor/cc/src/flags.rs /home/noname/dev/projects/SimpleLlama/vendor/cc/src/detect_compiler_family.c
+
+/home/noname/dev/projects/SimpleLlama/examples/streaming_basic/target/debug/deps/cc-f1d1ef7d8e05984b.d: /home/noname/dev/projects/SimpleLlama/vendor/cc/src/lib.rs /home/noname/dev/projects/SimpleLlama/vendor/cc/src/target.rs /home/noname/dev/projects/SimpleLlama/vendor/cc/src/target/apple.rs /home/noname/dev/projects/SimpleLlama/vendor/cc/src/target/generated.rs /home/noname/dev/projects/SimpleLlama/vendor/cc/src/target/llvm.rs /home/noname/dev/projects/SimpleLlama/vendor/cc/src/target/parser.rs /home/noname/dev/projects/SimpleLlama/vendor/cc/src/windows/mod.rs /home/noname/dev/projects/SimpleLlama/vendor/cc/src/windows/find_tools.rs /home/noname/dev/projects/SimpleLlama/vendor/cc/src/command_helpers.rs /home/noname/dev/projects/SimpleLlama/vendor/cc/src/tool.rs /home/noname/dev/projects/SimpleLlama/vendor/cc/src/tempfile.rs /home/noname/dev/projects/SimpleLlama/vendor/cc/src/utilities.rs /home/noname/dev/projects/SimpleLlama/vendor/cc/src/flags.rs /home/noname/dev/projects/SimpleLlama/vendor/cc/src/detect_compiler_family.c
+
+/home/noname/dev/projects/SimpleLlama/vendor/cc/src/lib.rs:
+/home/noname/dev/projects/SimpleLlama/vendor/cc/src/target.rs:
+/home/noname/dev/projects/SimpleLlama/vendor/cc/src/target/apple.rs:
+/home/noname/dev/projects/SimpleLlama/vendor/cc/src/target/generated.rs:
+/home/noname/dev/projects/SimpleLlama/vendor/cc/src/target/llvm.rs:
+/home/noname/dev/projects/SimpleLlama/vendor/cc/src/target/parser.rs:
+/home/noname/dev/projects/SimpleLlama/vendor/cc/src/windows/mod.rs:
+/home/noname/dev/projects/SimpleLlama/vendor/cc/src/windows/find_tools.rs:
+/home/noname/dev/projects/SimpleLlama/vendor/cc/src/command_helpers.rs:
+/home/noname/dev/projects/SimpleLlama/vendor/cc/src/tool.rs:
+/home/noname/dev/projects/SimpleLlama/vendor/cc/src/tempfile.rs:
+/home/noname/dev/projects/SimpleLlama/vendor/cc/src/utilities.rs:
+/home/noname/dev/projects/SimpleLlama/vendor/cc/src/flags.rs:
+/home/noname/dev/projects/SimpleLlama/vendor/cc/src/detect_compiler_family.c:

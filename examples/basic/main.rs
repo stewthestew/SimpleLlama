@@ -4,7 +4,7 @@ use std::{
 };
 
 use simple_llama_rs::{
-    DEFAULT_URL, ModelMemory, ModelOptions, add_message, chat::MessageMethods, send_message,
+    add_message, chat::MessageMethods, send_message, ModelMemory, ModelOptions, DEFAULT_URL
 };
 
 #[tokio::main]

@@ -5,6 +5,8 @@
 pub mod chat;
 pub mod common;
 pub mod models;
+#[cfg(feature = "stream")]
+pub mod stream;
 
 // Convenience re-exports
 pub use chat::{ChatMessage, ModelMemory, Response, add_message};

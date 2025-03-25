@@ -1,2 +1,2 @@
-pub mod information;
+mod information;
 pub use information::*;

@@ -1,0 +1,17 @@
+/home/noname/dev/projects/SimpleLlama/examples/streaming_basic/target/debug/deps/libtracing_core-4151371a8a3c8b00.rmeta: /home/noname/dev/projects/SimpleLlama/vendor/tracing-core/src/lib.rs /home/noname/dev/projects/SimpleLlama/vendor/tracing-core/src/lazy.rs /home/noname/dev/projects/SimpleLlama/vendor/tracing-core/src/callsite.rs /home/noname/dev/projects/SimpleLlama/vendor/tracing-core/src/dispatcher.rs /home/noname/dev/projects/SimpleLlama/vendor/tracing-core/src/event.rs /home/noname/dev/projects/SimpleLlama/vendor/tracing-core/src/field.rs /home/noname/dev/projects/SimpleLlama/vendor/tracing-core/src/metadata.rs /home/noname/dev/projects/SimpleLlama/vendor/tracing-core/src/parent.rs /home/noname/dev/projects/SimpleLlama/vendor/tracing-core/src/span.rs /home/noname/dev/projects/SimpleLlama/vendor/tracing-core/src/stdlib.rs /home/noname/dev/projects/SimpleLlama/vendor/tracing-core/src/subscriber.rs
+
+/home/noname/dev/projects/SimpleLlama/examples/streaming_basic/target/debug/deps/libtracing_core-4151371a8a3c8b00.rlib: /home/noname/dev/projects/SimpleLlama/vendor/tracing-core/src/lib.rs /home/noname/dev/projects/SimpleLlama/vendor/tracing-core/src/lazy.rs /home/noname/dev/projects/SimpleLlama/vendor/tracing-core/src/callsite.rs /home/noname/dev/projects/SimpleLlama/vendor/tracing-core/src/dispatcher.rs /home/noname/dev/projects/SimpleLlama/vendor/tracing-core/src/event.rs /home/noname/dev/projects/SimpleLlama/vendor/tracing-core/src/field.rs /home/noname/dev/projects/SimpleLlama/vendor/tracing-core/src/metadata.rs /home/noname/dev/projects/SimpleLlama/vendor/tracing-core/src/parent.rs /home/noname/dev/projects/SimpleLlama/vendor/tracing-core/src/span.rs /home/noname/dev/projects/SimpleLlama/vendor/tracing-core/src/stdlib.rs /home/noname/dev/projects/SimpleLlama/vendor/tracing-core/src/subscriber.rs
+
+/home/noname/dev/projects/SimpleLlama/examples/streaming_basic/target/debug/deps/tracing_core-4151371a8a3c8b00.d: /home/noname/dev/projects/SimpleLlama/vendor/tracing-core/src/lib.rs /home/noname/dev/projects/SimpleLlama/vendor/tracing-core/src/lazy.rs /home/noname/dev/projects/SimpleLlama/vendor/tracing-core/src/callsite.rs /home/noname/dev/projects/SimpleLlama/vendor/tracing-core/src/dispatcher.rs /home/noname/dev/projects/SimpleLlama/vendor/tracing-core/src/event.rs /home/noname/dev/projects/SimpleLlama/vendor/tracing-core/src/field.rs /home/noname/dev/projects/SimpleLlama/vendor/tracing-core/src/metadata.rs /home/noname/dev/projects/SimpleLlama/vendor/tracing-core/src/parent.rs /home/noname/dev/projects/SimpleLlama/vendor/tracing-core/src/span.rs /home/noname/dev/projects/SimpleLlama/vendor/tracing-core/src/stdlib.rs /home/noname/dev/projects/SimpleLlama/vendor/tracing-core/src/subscriber.rs
+
+/home/noname/dev/projects/SimpleLlama/vendor/tracing-core/src/lib.rs:
+/home/noname/dev/projects/SimpleLlama/vendor/tracing-core/src/lazy.rs:
+/home/noname/dev/projects/SimpleLlama/vendor/tracing-core/src/callsite.rs:
+/home/noname/dev/projects/SimpleLlama/vendor/tracing-core/src/dispatcher.rs:
+/home/noname/dev/projects/SimpleLlama/vendor/tracing-core/src/event.rs:
+/home/noname/dev/projects/SimpleLlama/vendor/tracing-core/src/field.rs:
+/home/noname/dev/projects/SimpleLlama/vendor/tracing-core/src/metadata.rs:
+/home/noname/dev/projects/SimpleLlama/vendor/tracing-core/src/parent.rs:
+/home/noname/dev/projects/SimpleLlama/vendor/tracing-core/src/span.rs:
+/home/noname/dev/projects/SimpleLlama/vendor/tracing-core/src/stdlib.rs:
+/home/noname/dev/projects/SimpleLlama/vendor/tracing-core/src/subscriber.rs:

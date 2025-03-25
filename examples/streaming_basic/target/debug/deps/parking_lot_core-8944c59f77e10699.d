@@ -1,0 +1,13 @@
+/home/noname/dev/projects/SimpleLlama/examples/streaming_basic/target/debug/deps/libparking_lot_core-8944c59f77e10699.rmeta: /home/noname/dev/projects/SimpleLlama/vendor/parking_lot_core/src/lib.rs /home/noname/dev/projects/SimpleLlama/vendor/parking_lot_core/src/parking_lot.rs /home/noname/dev/projects/SimpleLlama/vendor/parking_lot_core/src/spinwait.rs /home/noname/dev/projects/SimpleLlama/vendor/parking_lot_core/src/thread_parker/mod.rs /home/noname/dev/projects/SimpleLlama/vendor/parking_lot_core/src/util.rs /home/noname/dev/projects/SimpleLlama/vendor/parking_lot_core/src/word_lock.rs /home/noname/dev/projects/SimpleLlama/vendor/parking_lot_core/src/thread_parker/linux.rs
+
+/home/noname/dev/projects/SimpleLlama/examples/streaming_basic/target/debug/deps/libparking_lot_core-8944c59f77e10699.rlib: /home/noname/dev/projects/SimpleLlama/vendor/parking_lot_core/src/lib.rs /home/noname/dev/projects/SimpleLlama/vendor/parking_lot_core/src/parking_lot.rs /home/noname/dev/projects/SimpleLlama/vendor/parking_lot_core/src/spinwait.rs /home/noname/dev/projects/SimpleLlama/vendor/parking_lot_core/src/thread_parker/mod.rs /home/noname/dev/projects/SimpleLlama/vendor/parking_lot_core/src/util.rs /home/noname/dev/projects/SimpleLlama/vendor/parking_lot_core/src/word_lock.rs /home/noname/dev/projects/SimpleLlama/vendor/parking_lot_core/src/thread_parker/linux.rs
+
+/home/noname/dev/projects/SimpleLlama/examples/streaming_basic/target/debug/deps/parking_lot_core-8944c59f77e10699.d: /home/noname/dev/projects/SimpleLlama/vendor/parking_lot_core/src/lib.rs /home/noname/dev/projects/SimpleLlama/vendor/parking_lot_core/src/parking_lot.rs /home/noname/dev/projects/SimpleLlama/vendor/parking_lot_core/src/spinwait.rs /home/noname/dev/projects/SimpleLlama/vendor/parking_lot_core/src/thread_parker/mod.rs /home/noname/dev/projects/SimpleLlama/vendor/parking_lot_core/src/util.rs /home/noname/dev/projects/SimpleLlama/vendor/parking_lot_core/src/word_lock.rs /home/noname/dev/projects/SimpleLlama/vendor/parking_lot_core/src/thread_parker/linux.rs
+
+/home/noname/dev/projects/SimpleLlama/vendor/parking_lot_core/src/lib.rs:
+/home/noname/dev/projects/SimpleLlama/vendor/parking_lot_core/src/parking_lot.rs:
+/home/noname/dev/projects/SimpleLlama/vendor/parking_lot_core/src/spinwait.rs:
+/home/noname/dev/projects/SimpleLlama/vendor/parking_lot_core/src/thread_parker/mod.rs:
+/home/noname/dev/projects/SimpleLlama/vendor/parking_lot_core/src/util.rs:
+/home/noname/dev/projects/SimpleLlama/vendor/parking_lot_core/src/word_lock.rs:
+/home/noname/dev/projects/SimpleLlama/vendor/parking_lot_core/src/thread_parker/linux.rs:
