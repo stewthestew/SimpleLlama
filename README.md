@@ -71,11 +71,17 @@ async fn main() {
         }
     }
 }
-
 ```
 
+<!-- 
+With streaming:
+```rust
+```
+
+ -->
+
 ## Todo
-- [ ] Streaming support
+- [x] Streaming support
 - [ ] Listing models
 - [x] Pulling models
 - [x] Deleting models
