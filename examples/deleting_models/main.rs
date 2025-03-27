@@ -1,4 +1,5 @@
 use simple_llama_rs::{DEFAULT_DELETE_URL, DeleteInfo, delete_model};
+
 #[tokio::main]
 async fn main() {
     match delete_model(

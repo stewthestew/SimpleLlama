@@ -1,4 +1,5 @@
 use simple_llama_rs::{DEFAULT_PULL_URL, PullInfo, pull_model};
+
 #[tokio::main]
 async fn main() {
     match pull_model(
