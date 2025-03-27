@@ -5,7 +5,6 @@
 pub mod chat;
 pub mod common;
 pub mod models;
-pub mod stream;
 
 // Convenience re-exports
 pub use chat::{ChatMessage, ModelMemory, Response, add_message};

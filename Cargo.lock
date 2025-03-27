@@ -1014,7 +1014,7 @@ dependencies = [
 
 [[package]]
 name = "simple_llama_rs"
-version = "1.0.3"
+version = "1.0.4"
 dependencies = [
  "bytes",
  "reqwest",
