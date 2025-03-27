@@ -81,8 +81,8 @@ With streaming:
  -->
 
 ## Todo
-- [x] Streaming support
 - [ ] Listing models
+- [x] Streaming support (Experimental)
 - [x] Pulling models
 - [x] Deleting models
 - [x] Copying models

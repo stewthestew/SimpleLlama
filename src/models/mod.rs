@@ -4,11 +4,9 @@
 mod client;
 mod options;
 mod control;
-#[cfg(feature = "stream")]
 pub mod stream;
 // Re-export types and functions
 pub use client::*;
 pub use options::ModelOptions;
-pub use control::*; 
-#[cfg(feature = "stream")]
+pub use control::*;
 pub use stream::send_message_stream;

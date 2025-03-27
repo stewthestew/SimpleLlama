@@ -1,4 +1,3 @@
-#![cfg(feature = "stream")]
-pub mod client;
+pub mod stream_client;
 
-pub use client::send_message_stream;
+pub use stream_client::send_message_stream;

@@ -3,9 +3,7 @@ use std::{
     process::exit,
 };
 
-use simple_llama_rs::{
-    add_message, stream::send_message_stream, ModelMemory, ModelOptions, DEFAULT_URL
-};
+use simple_llama_rs::{DEFAULT_URL, ModelMemory, ModelOptions, add_message, send_message_stream};
 use tokio_stream::StreamExt;
 
 #[tokio::main]
@@ -43,7 +41,6 @@ async fn main() {
                     if let Ok(chunk) = chunk {
                         println!("{}", String::from_utf8_lossy(&chunk))
                     }
-
                 }
             }
         }

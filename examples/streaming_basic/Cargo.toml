@@ -1,9 +1,0 @@
-[package]
-name = "streaming_basic"
-version = "0.1.0"
-edition = "2024"
-
-[dependencies]
-simple_llama_rs = { path = "../..", features = ["stream"] }
-tokio = { version = "1.44.0", features = ["full", "macros"] }
-tokio-stream = "0.1.17" 
