@@ -1,4 +1,4 @@
-use super::{CopyInfo, DeleteInfo, PullInfo, options::ModelOptions};
+use super::{control::*, options::ModelOptions};
 use crate::chat::Response;
 use reqwest::Client;
 
@@ -52,6 +52,8 @@ pub async fn send_message(data: &ModelOptions, url: &str) -> Result<Response, re
         response: text,
     })
 }
+
+
 /// Copies a model under a new name.
 ///
 /// # Arguments

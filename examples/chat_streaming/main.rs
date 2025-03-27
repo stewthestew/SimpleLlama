@@ -3,9 +3,8 @@ use std::{
     process::exit,
 };
 
-use simple_llama_rs::{
-    DEFAULT_URL, ModelMemory, ModelOptions, add_message, chat::MessageMethods, send_message,
-};
+use simple_llama_rs::{DEFAULT_URL, ModelMemory, ModelOptions, add_message, send_message_stream};
+use tokio_stream::StreamExt;
 
 #[tokio::main]
 async fn main() {
@@ -32,14 +31,17 @@ async fn main() {
             top_k: 1,
             temperature: 0.7,
             model: "llama3.1".to_string(),
-            stream: false,
+            stream: true,
         };
 
-        match send_message(&model_data, DEFAULT_URL).await {
+        match send_message_stream(&model_data, DEFAULT_URL).await {
             Err(e) => eprintln!("{e}"),
-            Ok(val) => {
-                println!("{}: {}", model_data.model, val.get_llm_content());
-                add_message(&mut history, "assistant".to_string(), val.get_llm_content());
+            Ok(mut val) => {
+                while let Some(chunk) = val.next().await {
+                    if let Ok(chunk) = chunk {
+                        println!("{}", String::from_utf8_lossy(&chunk))
+                    }
+                }
             }
         }
     }
