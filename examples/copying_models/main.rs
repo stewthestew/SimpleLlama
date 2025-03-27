@@ -1,4 +1,5 @@
 use simple_llama_rs::{CopyInfo, DEFAULT_COPY_URL, copy_model};
+
 #[tokio::main]
 async fn main() {
     match copy_model(
