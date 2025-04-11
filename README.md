@@ -13,7 +13,7 @@ If there are any more dependencies this crate requires, then make an issue.
 Add this to your Cargo.toml file
 ```toml
 [dependencies]
-simple_llama_rs = "1.0.4"
+simple_llama_rs = "1.0.5"
 ```
 or
 ```toml
@@ -54,7 +54,7 @@ async fn main() {
         add_message(&mut history, "user".to_string(), input);
 
         let model_data = ModelOptions {
-            messages: history.clone(), // You should find a way not to clone it
+            messages: history.clone(),
             top_p: 1f32,
             top_k: 1,
             temperature: 0.7,
@@ -142,7 +142,7 @@ async fn main() {
     .await
     {
         Err(e) => {
-            eprintln!("Error happened with deleting the model: {e}"); // This will handle reqwest errors not ollama.
+            eprintln!("Error happened with deleting the model: {e}");
         }
         Ok(val) => {
             println!("{} {}", val.status_code, val.response)
@@ -166,7 +166,7 @@ async fn main() {
     .await
     {
         Err(e) => {
-            eprintln!("Error happened with deleting the model: {e}"); // This will handle reqwest errors not ollama.
+            eprintln!("Error happened with deleting the model: {e}");
         }
         Ok(val) => {
             println!("{} {}", val.status_code, val.response)
@@ -191,7 +191,7 @@ async fn main() {
     .await
     {
         Err(e) => {
-            eprintln!("Error happened with copying the model: {e}"); // This will handle reqwest errors not ollama.
+            eprintln!("Error happened with copying the model: {e}");
         }
         Ok(val) => {
             println!("{} {}", val.status_code, val.response)
