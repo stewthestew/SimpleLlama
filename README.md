@@ -1,6 +1,9 @@
 # Simple Llama
 Simple Llama is an Ollama wrapper for Rust.
 
+> [!NOTE]
+> Not to be confused with the other crate that is called `simple_llama` I chose this name at 3 am don't blame me for just adding a _rs to the name thinking it would be fine.
+> Also this is not the most idiomatic rust library ever, I made some really bad decisions making this
 
 ## Dependencies
 `openssl`
@@ -13,7 +16,7 @@ If there are any more dependencies this crate requires, then make an issue.
 Add this to your Cargo.toml file
 ```toml
 [dependencies]
-simple_llama_rs = "1.0.6"
+simple_llama_rs = "1.0.7"
 ```
 or
 ```toml
