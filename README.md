@@ -1,5 +1,5 @@
 # Simple Llama
-Simple Llama is an Ollama wrapper for Rust.
+Simple Llama is a simple Ollama wrapper for Rust.
 
 > [!NOTE]
 > Not to be confused with the other crate that is called `simple_llama` I chose this name at 3 am don't blame me for just adding a _rs to the name thinking it would be fine.
@@ -214,6 +214,3 @@ async fn main() {
 ## Similar crates:
 [Mistral.rs](https://github.com/EricLBuehler/mistral.rs)  
 [Ollama-rs](https://github.com/pepperoni21/ollama-rs)
-
-## License
-This project is Licensed under the MIT License
